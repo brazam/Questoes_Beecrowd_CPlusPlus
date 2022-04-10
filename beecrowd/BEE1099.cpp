@@ -1,23 +1,26 @@
 #include <iostream>
 using namespace std;
+
+int somaimpar(int a,int b){
+    int aux, soma = 0;
+    if(a > b){
+        aux = a;
+        a = b;
+        b = aux;    
+    }
+    for(int i = a+1; i < b; i++){
+        if(i % 2 == 1){
+            soma += i;
+        }
+    }
+    return soma;
+}
+
 int main(){
-    int n,x,y,soma;
-    int menor;
+    int n, x, y;
     cin >> n;
-    soma = 0;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n;i++){
         cin >> x >> y;
-        if (x > y){
-            menor = x;
-            x = y;
-            y = menor;
-        }
-        for (int j = x; j < y; j++){
-            if (j%2 == 1 && j != x){
-                soma += j;
-            }
-        }
-        cout << soma << endl;
-        soma = 0;
+        cout << somaimpar(x,y) << endl;
     }
 }
